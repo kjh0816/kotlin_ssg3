@@ -19,12 +19,13 @@ fun mapFromJson(jsonStr: String): Map<String, Any>{
     val map = mutableMapOf<String, Any>()
 
 
-    var jsonStr = jsonStr.drop(1).dropLast(1)
+    var jsonStr = jsonStr.drop(1)
+    jsonStr = jsonStr.dropLast(1)
 
     val jsonStrBits = jsonStr.split(",\r\n")
 
     for(jsonStrBit in jsonStrBits){
-        val keyValueBits = jsonStr.split(":", limit=2)
+        val keyValueBits = jsonStrBit.split(":", limit=2)
         val key = keyValueBits[0].trim().drop(1).dropLast(1)
         val value = keyValueBits[1].trim()
 
@@ -79,8 +80,10 @@ fun readIntFromFile(filePath: String, default: Int): Int{
 }
 
 fun writeIntInFile(filePath: String, content: Int){
+    File(filePath).parentFile.mkdirs()
     File(filePath).writeText(content.toString())
 }
 fun deleteFile(filePath: String){
+
     File(filePath).delete()
 }

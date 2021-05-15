@@ -120,7 +120,7 @@ class ArticleController {
     fun list(req: Req) {
 
         val searchKeyword = req.getStrParam("searchKeyword", "")
-        val page = req.getIntParam("id",1)
+        val page = req.getIntParam("page",1)
         val boardCode = req.getStrParam("boardCode", "")
 
         val itemCountInAPage = 10

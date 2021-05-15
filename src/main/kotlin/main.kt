@@ -26,7 +26,7 @@ fun main(){
         }else{
             "${loginedMember!!.nickname})"
         }
-        print(prompt)
+        println(prompt)
         val command = readLineTrim()
         val req = Req(command)
 

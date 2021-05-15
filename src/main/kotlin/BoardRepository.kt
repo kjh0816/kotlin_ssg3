@@ -39,6 +39,9 @@ class BoardRepository {
         val boardLastId = getBoardLastId()
 
         for(id in 1 .. boardLastId){
+
+
+
             val board = getBoardFromFile("data/board/${id}.json")
             if(board != null){
                 boards.add(board)
@@ -114,7 +117,7 @@ class BoardRepository {
 
         for(board in getBoards()){
             val member = memberRepository.getMemberById(board.memberId)
-            print("${board.id} / ${board.name} / ${board.code} / ${member!!.id} / ${board.regDate}")
+            println("${board.id} / ${board.name} / ${board.code} / ${member!!.id} / ${board.regDate}")
         }
     }
 
